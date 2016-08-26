@@ -1,0 +1,35 @@
+--------------------
+-- GIT MANUAL
+--------------------
+
+Download a Repository:
+
+$ git clone https://github.com/udacity/asteroids.git
+
+$ cd asteroids
+
+$git log (to show all commits history)
+
+$git diff commitID1 commitID2
+
+If the colors are not present when doing the diff, use the following command to change the properties:
+
+$git config --global color.ui auto
+
+Entering commit IDs
+
+If it is easier, you may enter the first four or more characters of the commit ID rather than pasting the entire ID.
+
+-------------------
+--- CREATING A REPOSITORY
+-------------------
+
+
+locate yourself within the directory to be the Repository and run the following commad:
+
+$ git init
+
+This will create the .git directory, but it will not create any coommit
+
+
+
