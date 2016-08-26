@@ -1,0 +1,9 @@
+
+
+What happens when you initialize a repository? Why do you need to do it?
+
+In git a Repository is initialized by running the following command in the directory to be the Repository:
+
+$git init
+
+It will initialize and create all the necessary artificats for git, so that you can start creating commits and add files to the version control

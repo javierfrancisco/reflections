@@ -1,0 +1,67 @@
+
+How did viewing a diff between two versions of a file help you see the bug that was introduced?
+
+To compare 2 files in Mac, use: 
+$ diff -u oldFile.txt newFile.txt
+
+This command will mark with -- the deleted rows and with ++ for the new rows. This way makes easy to identify what has changed between two versions, this can help spot what are the root cause of a new behaviour or missing functionality in the new version.
+
+------------------
+
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+It is a basic tool for an efficient programmer, because you don't have to create a new backup file for every time the file has been modified, and you don't have to worry about comparing the backup files or even managing the backup files. With access to the full history of a file, you can go and retrieve the first version of the file, or you can go to an interim version of the file.
+
+---------------
+
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google Docs does?
+
+
+pros of git  - Only logical versions of the file are saved, so when you go back to a previous version you know the file was in complete state and working properly for what it was intented to.
+
+cons of git - In case you have power outrage and you were working in the middle of a functionality, then all your previous work before the commit could be lost.
+
+pros of google docs - the versions are saved automatically for you without creating a commit
+
+cons of google docs - many versions of the file and not designed for programmers.
+
+---------
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+
+Because GIT is code oriented for programmers where a logical change can mean a change across multiple files to work as a whole.
+
+
+---------
+
+How can you use the commands git log and git diff to view the history of files?
+
+
+git log - will show all the recent commits in the project
+
+git diff - allows you to compare two commits
+
+
+---------
+
+How might using version control make you more confident to make changes that could break something?
+
+It will make me more confident in the sense that I can easly go back to a previous commit of the code, hence it will be easier to spot what has changed between two versions
+
+
+----------
+
+Set up git
+
+-Add the 2 new files to the user directory and add the bash code to the .bash_profile
+
+Make sublime the default editor of git:
+
+git config --global core.editor  "subl -n -w"
+
+-----------
+
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+Download a repository and start commiting some code
+
