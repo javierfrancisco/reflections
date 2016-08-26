@@ -7,3 +7,10 @@ In git a Repository is initialized by running the following command in the direc
 $git init
 
 It will initialize and create all the necessary artificats for git, so that you can start creating commits and add files to the version control
+
+
+-----------------------------------
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+The staging area is an interim stage where files can me added to build a logical unit of work before committing the changes to the repository as a commit.
