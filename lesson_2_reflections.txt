@@ -39,3 +39,28 @@ How do the diagrams help you visualize the branch structure?
 
 The diagramas help you to easly visualize the hierarchy and flow of all the commits that conform a branch and how different branches can be related, in the sense that to know from which commit exactly did the new branch was created from. It also helps visualizing the deattached commits to build new branches without previously impacting any other branch while working on the changes and doing new commits.
 
+-----------
+
+Reflect: Merging Two Branches
+
+Now that you’ve learned how to use Git to merge branches together, go add the following question and your thoughts on it to your reflections file: 
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+
+A new branch, that will combine the commits from the two branches sorted by timestamp. The branch that was merged into the master branch can be deleted. The merge will create a new commit that will become the new tip of the branch that will point to each ot the merged branches.
+The merge is done by comparing 3 commits, the 2 branches to merged and the commit from which both branch are diverged.
+
+-----------------
+
+Reflect: Automatic vs. Manual Merging
+
+Now that you’ve learned when Git will not be able to automatically merge branches, and what happens when it can’t, go add the following question and your thoughts on it to your reflections file:
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+Automatic merging is good for all the common scenario where there is no conflict, as when there is a comflict between versions is better to know about it so that a person can resolve manually a conflict which could avoid any bug introduced by an incorrect auto merge, this will keep the code healthly even though it will require a considerable amount of effor to resolve manually the merges.
+
+
+
+
+
