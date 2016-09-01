@@ -1,0 +1,5 @@
+When would you want to create a remote repository rather than
+keeping all your work local?
+
+It's good idea to create a remote repository once the code is
+in a state that can be shared publically.
