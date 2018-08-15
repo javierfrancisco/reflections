@@ -31,5 +31,223 @@ $ git init
 
 This will create the .git directory, but it will not create any coommit
 
+Commit changes:
 
+$git add (it will add the file to the staging area)
+$git commit (it will commit the change to the repository)
+
+Compare versions:
+
+$git diff (compares the working directory with the staging area)
+
+$git diff --staged (compares the staging area with the repository (last commit))
+
+$git reset --hard (deletes any uncommited changes from the working directory)
+
+
+$git checkout master (Return to the HEAD)
+
+
+$git checkout master 
+
+before you commit. This is because your HEAD is still 'detached' from Lesson 1 when you checked out an old commit, and running this command will fix that. You'll learn more about what this command does later this lesson.
+
+------------------
+----BRANCHES------
+
+$git branch (will show the existing brances)
+
+$git branch easy-mode (when a name is given, git will create a branch with that name)
+
+$git checkout easy-mode (switch to easy-mode branch, so that commits happen here)
+
+$git log --graph --oneline master easy-mode
+
+
+$git checkout -b new_branch_name (Creates a new branch from the working directory, same as the following 2 commands)
+
+$git branch new_branch_name
+
+$git checkout new_branch_name
+
+
+If a branch is deleted and leaves some commits unreachable from existing branches, those commits will continue to be accessible by commit id, until Git’s garbage collection runs. This will happen automatically from time to time, unless you actively turn it off. You can also run this process manually with 
+
+$git gc.
+
+$git merge master new_branch_name (Will merge new_branch_name with the master branch, combining all the commits)
+
+$git show (Will show what changes were indroduced by a commit compared to its parent)
+
+$git brandh -d merged_branch_name (will delete a branch after it has been merged to the master branch, it will only delete the label)
+
+--------------------
+----MERGE-----------
+--------------------
+
+$git merge master coins (Merges the coins branch into the master branch)
+
+$git show commit_id (Will show the parent commit of the given commit)
+
+$git branch -d merged_branch_name (Will delete the branch label, but commits can still be accesible by their id)
+
+<Merge Master into Easy Mode, to keep master with the standard difficulty but merge the new changes from the master to the Easy Mode branch>
+
+$git checkoung easy-mode 
+
+$git merge master easy-mode (Will give conflict error, resolve mannually the issue)
+
+$git status
+$git add game.js (Add the modified file to the staging area)
+
+$git status (All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge))
+
+$git commit (Merge branch 'master' into easy-mode)
+
+$ git log -n 1 (Will show the last commit in the branch)
+
+
+------------------
+----REMOTE-----
+------------------
+
+First, create a new repository in Git Hub
+
+
+
+Reflections repository:
+
+https://github.com/javierfrancisco/reflections.git
+
+
+$git remote (Will show the list of Remote, at first it will be empty)
+
+$git remote add origin https://github.com/javierfrancisco/reflections.git (Will create a new remote named origin)
+
+$ git remote -v (Will show origin)
+
+$ git push origin master (Will push the master branch into the origin remote)
+
+
+$ git pull origin master (Pulls any updates from the remote master branch and syncs with the local)
+
+
+-------------------
+----FORK-------
+---------
+
+
+Fork allows you to fork (clone) a Git Hub repository into Git Hub, then you can locally clone the forked branch and work from there, this allows the author of the forked repository to have a pointer to your version
+
+Go to the remote Git Hub repository and find the option Fork,
+
+$git clone https://github.com/javierfrancisco/recipes.git
+
+
+
+-------------------
+----FETCH-------
+---------
+
+When you clone a remote repository, a local version of the remote repository is stored locally, hence you can fetch (update) your local version of the remote repository, so that you can do diff between your local and your local remote copy. When a clone it's created a new commit is created in your local with the label origin/master (remote name and branch name)
+
+A fetch is updating your local copy of the remote origin, it changes the tip of your branch (origin/master)
+
+git pull origin master = 1. git fetch origin
+						 2. git merge master origin/master
+
+$git branch -a (Displays the local branches of the locally copy of the remote branch)
+
+$git fetch origin (Will update the local version of the remote)
+
+$git log origin/master (Displays the log for the local version of the remote, will include the new remote changes)
+
+$git diff origin/master master (Displays the changes between local-remote and local) 
+
+
+$git merge master origin/master (merges the local master with the tip of the local-remote branch)
+
+Auto merge will fail due to conflicts (Go to the conflicted file and manually resolved the conflicts, save the changes and commit)
+
+$ git add chilli-recipe.txt
+
+$ git commit
+
+$ git pull origin master (same as fetch and merge)
+
+$ git push origin master (push the merged version to the Remote
+
+---------------------
+----PULL REQUEST----
+------------------
+
+Pull request is when from the Remote server the pull (merge) is executed. First you have to create a new branch from local and push it to the remote,
+then from the server you should review the changes and if needed,
+merge the master branch with the new branch
+
+$ git branch different-oit (new local branch)
+
+$ git checkout different-oit (moving to the new branch)
+
+--make the changes
+
+$ git add chilli-recipe.txt
+$ git commit
+$ git push origin different-oit (push new local changes to the remote)
+
+From Git Hub initiate a Pull request by trying to merge your master to the new branch, but don't click on Merge Pull Request just yet.
+
+Mering a pull request in local:
+
+$ git pull origin master (get the new merged master from the remote)
+
+or $ git fetch and $ git merge origin/master master
+
+$ git checkout different-branch (move to the branch in which you want to merge)
+
+$ git merge master different-oit (merge the local branch with the new tip of remote master, a conflict may come)
+
+Manually resolve any conflicts...
+
+$ git commit (save the changes)
+
+$ git push origin different-oit (push the new local branch that contains the merge of the new master remote tip and your branch)
+
+In Git Hub, merge the pull request then in local do:
+
+$ git pull
+
+------------------------
+----Git hub
+
+
+Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.
+Open Terminal.
+
+Change the current working directory to your local project.
+
+Initialize the local directory as a Git repository.
+
+git init
+Add the files in your new local repository. This stages them for the first commit.
+
+git add .
+# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
+Commit the files that you've staged in your local repository.
+
+git commit -m "First commit"
+# Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+Copy remote repository URL fieldAt the top of your GitHub repository's Quick Setup page, click  to copy the remote repository URL.
+
+In Terminal, add the URL for the remote repository where your local repository will be pushed.
+
+git remote add origin remote repository URL
+# Sets the new remote
+git remote -v
+# Verifies the new remote URL
+Push the changes in your local repository to GitHub.
+
+git push -u origin master
+# Pushes the changes in your local repository up to the remote repository you specified as the origin
 
